@@ -1,617 +1,233 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Farrukh Sabriy — UWED talabasi, International Law yo‘nalishida o‘qish davom etmoqda. Professional portfolio with advanced parallax, 3D scroll animations, glassmorphism and cinematic effects.">
-    <title>FARRUKH SABRIY • INTERNATIONAL LAW • AI • FUTURE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
-        
-        :root {
-            --accent: #00d4ff;
-            --dark: #0a0a0a;
-            --glass: rgba(255,255,255,0.08);
-        }
-        
-        * {
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, transform;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 200ms;
-        }
-        
-        body {
-            font-family: 'Inter', system_ui, sans-serif;
-            background: #0a0a0a;
-            color: #f0f0f0;
-            overflow-x: hidden;
-        }
-        
-        .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        
-        /* GLASSMORPHISM */
-        .glass {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
-        }
-        
-        /* ADVANCED PARALLAX */
-        .parallax-layer {
-            position: absolute;
-            will-change: transform;
-            transition: transform 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        
-        /* HERO GRADIENT ORB */
-        .orb {
-            animation: orbFloat 25s ease infinite;
-        }
-        
-        @keyframes orbFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(80px, -60px) rotate(180deg); }
-        }
-        
-        /* SCROLL TRIGGER */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(80px) scale(0.95);
-            transition: all 1.1s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        
-        /* 3D CARD TILT */
-        .card-3d {
-            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        /* NEON ACCENT */
-        .neon-accent {
-            text-shadow: 
-                0 0 15px var(--accent),
-                0 0 30px var(--accent);
-        }
-        
-        /* TIMELINE LINE */
-        .timeline-line {
-            background: linear-gradient(to bottom, transparent, #00d4ff, transparent);
-        }
-        
-        /* PARTICLE BACKGROUND */
-        #hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            mix-blend-mode: screen;
-            opacity: 0.35;
-        }
-        
-        /* SECTION HEADER */
-        .section-header {
-            position: relative;
-        }
-        
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 64px;
-            height: 3px;
-            background: linear-gradient(to right, #00d4ff, transparent);
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .glass {
-                backdrop-filter: blur(12px);
-            }
-        }
-        
-        /* CUSTOM SCROLLBAR */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #00d4ff;
-            border-radius: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Farrukh' Sabriy Portfolio</title>
+  <style>
+    /* GENERAL RESETTING */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      background: #111;
+      color: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #003049, #d62828);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      animation: fadeIn 2s ease-out;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      animation: slideIn 2.5s ease-out;
+    }
+    .hero-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .hero-buttons button {
+      padding: 10px 30px;
+      font-size: 1.2rem;
+      border: 2px solid #fff;
+      background: none;
+      color: #fff;
+      cursor: pointer;
+      animation: fadeIn 3s ease-out;
+    }
+    .hero-buttons button:hover {
+      transition: 0.3s;
+      background: #d62828;
+      color: #fff;
+    }
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.6rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      color: #fff;
+    }
+    /* ABOUT SECTION */
+    .about {
+      height: 100vh;
+      padding: 50px;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .about h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-out;
+    }
+    .about p {
+      font-size: 1.4rem;
+      max-width: 600px;
+      line-height: 1.8;
+      animation: slideIn 2.5s ease;
+    }
+    /* PARALLAX SECTION */
+    .parallax {
+      height: 200vh;
+      background: url('https://source.unsplash.com/random/1600x900') fixed center center / cover;
+    }
+    /* PROJECTS SECTION */
+    .projects {
+      height: 100vh;
+      padding: 50px;
+      background: #203a43;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .projects-title {
+      font-size: 3rem;
+      text-align: center;
+    }
+    .project-gallery {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      width: 80%;
+    }
+    .project-item {
+      background: #2c5364;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    }
+    .project-item h3 {
+      margin: 15px 0;
+    }
+    /* FOOTER SECTION */
+    .footer {
+      height: 15vh;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes slideIn {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
 </head>
-<body class="bg-[#0a0a0a] text-white">
+<body>
 
-    <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
-        <div class="max-w-screen-2xl mx-auto px-8 py-6 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-[#00d4ff] rounded-2xl flex items-center justify-center text-2xl shadow-[0_0_25px_#00d4ff]">FS</div>
-                <h1 class="heading-font text-2xl tracking-[-1px]">FARRUKH SABRIY</h1>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-10 text-sm uppercase font-medium tracking-widest">
-                <a href="#hero" onclick="smoothScrollTo('hero')" class="hover:text-[#00d4ff]">HOME</a>
-                <a href="#about" onclick="smoothScrollTo('about')" class="hover:text-[#00d4ff]">ABOUT</a>
-                <a href="#expert" onclick="smoothScrollTo('expert')" class="hover:text-[#00d4ff]">EXPERTISE</a>
-                <a href="#experience" onclick="smoothScrollTo('experience')" class="hover:text-[#00d4ff]">EXPERIENCE</a>
-                <a href="#projects" onclick="smoothScrollTo('projects')" class="hover:text-[#00d4ff]">PROJECTS</a>
-                <a href="#gaming" onclick="smoothScrollTo('gaming')" class="hover:text-[#00d4ff]">MLBB</a>
-                <a href="#contact" onclick="smoothScrollTo('contact')" class="hover:text-[#00d4ff]">CONTACT</a>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <a href="https://github.com/nothin-zz" target="_blank" class="glass w-10 h-10 flex items-center justify-center rounded-2xl text-xl hover:scale-110">🐙</a>
-                <a href="https://instagram.com/nothin.zzzz" target="_blank" class="glass w-10 h-10 flex items-center justify-center rounded-2xl text-xl hover:scale-110">📸</a>
-                <a href="https://t.me/nothin_xz" target="_blank" class="glass w-10 h-10 flex items-center justify-center rounded-2xl text-xl hover:scale-110">✈️</a>
-                <a href="mailto:nothinxz@gmail.com" class="glass w-10 h-10 flex items-center justify-center rounded-2xl text-xl hover:scale-110">✉️</a>
-                
-                <button onclick="toggleMobileMenu()" class="md:hidden glass w-11 h-11 flex items-center justify-center text-3xl rounded-2xl">☰</button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden glass border-t border-white/10 px-8 py-8">
-            <div class="flex flex-col gap-6 text-center text-base font-medium">
-                <a href="#hero" onclick="smoothScrollTo('hero');toggleMobileMenu()" class="py-3">HOME</a>
-                <a href="#about" onclick="smoothScrollTo('about');toggleMobileMenu()" class="py-3">ABOUT</a>
-                <a href="#expert" onclick="smoothScrollTo('expert');toggleMobileMenu()" class="py-3">EXPERTISE</a>
-                <a href="#experience" onclick="smoothScrollTo('experience');toggleMobileMenu()" class="py-3">EXPERIENCE</a>
-                <a href="#projects" onclick="smoothScrollTo('projects');toggleMobileMenu()" class="py-3">PROJECTS</a>
-                <a href="#gaming" onclick="smoothScrollTo('gaming');toggleMobileMenu()" class="py-3">MLBB</a>
-                <a href="#contact" onclick="smoothScrollTo('contact');toggleMobileMenu()" class="py-3">CONTACT</a>
-            </div>
-        </div>
-    </nav>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div>
+      <h1>Farrukh' Sabriy</h1>
+      <p>Unhappiness Expert | Failure Expert | Pro AI User | Athlete</p>
+      <div class="hero-buttons">
+        <button onclick="location.href='https://github.com/nothin-zz'">GitHub</button>
+        <button onclick="location.href='https://instagram.com/nothin.zzzz'">Instagram</button>
+      </div>
+      <div class="scroll-down">↓ Scroll to Start</div>
+    </div>
+  </section>
 
-    <!-- HERO SECTION WITH MULTI-LAYER PARALLAX + CANVAS -->
-    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Layer 1 - Deep background gradient -->
-        <div id="parallax-bg1" class="parallax-layer absolute inset-0 bg-[radial-gradient(at_center,#001a22_0%,#0a0a0a_70%)] z-0"></div>
-        
-        <!-- Layer 2 - Subtle grid -->
-        <div id="parallax-bg2" class="parallax-layer absolute inset-0 z-10 opacity-10"
-             style="background-image: linear-gradient(#00d4ff 1px, transparent 1px), linear-gradient(90deg, #00d4ff 1px, transparent 1px); background-size: 80px 80px;"></div>
-        
-        <!-- Canvas particles (cinematic tech feel) -->
-        <canvas id="hero-canvas" class="parallax-layer absolute inset-0 z-20"></canvas>
-        
-        <!-- Layer 3 - Floating orb -->
-        <div id="parallax-orb" class="parallax-layer absolute top-1/4 right-12 w-96 h-96 bg-[#00d4ff] rounded-full blur-[120px] opacity-20 orb z-30"></div>
-        
-        <div class="max-w-screen-2xl mx-auto px-8 relative z-40 pt-20">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-10">
-                    <div class="inline-flex items-center gap-3 glass px-6 py-3 rounded-3xl text-sm font-medium">
-                        <div class="w-3 h-3 bg-[#00d4ff] rounded-full animate-pulse"></div>
-                        TASHKENT • UWED • CURRENTLY ENROLLED
-                    </div>
-                    
-                    <h1 class="heading-font text-[5.5rem] lg:text-[7rem] leading-[0.95] font-semibold tracking-[-3px] neon-accent">
-                        FARRUKH<br>SABRIY
-                    </h1>
-                    
-                    <p class="text-4xl text-[#00d4ff] font-medium">International Law Student • PRO AI User • Athlete</p>
-                    
-                    <div class="flex flex-wrap gap-6 text-2xl max-w-2xl">
-                        <div class="glass px-8 py-5 rounded-3xl">O‘qish davom etmoqda • 3-yil</div>
-                        <div class="glass px-8 py-5 rounded-3xl">Trading (1 yil)</div>
-                        <div class="glass px-8 py-5 rounded-3xl">Unemployment Boss (20 yil)</div>
-                    </div>
-                    
-                    <div class="flex items-center gap-8">
-                        <button onclick="smoothScrollTo('projects')" 
-                                class="px-14 py-7 bg-white text-black text-xl font-semibold rounded-3xl flex items-center gap-4 hover:shadow-2xl hover:shadow-[#00d4ff]/50">
-                            LOYIHALARIMNI KO‘RISH
-                            <span class="text-4xl rotate-45">→</span>
-                        </button>
-                        
-                        <a href="mailto:nothinxz@gmail.com" 
-                           class="glass px-10 py-7 text-xl font-medium flex items-center gap-3 rounded-3xl hover:bg-white/10">
-                            <span>Bog‘lanish</span>
-                            <span class="text-[#00d4ff]">✉️</span>
-                        </a>
-                    </div>
-                    
-                    <div class="pt-8 flex items-center gap-6 text-sm uppercase tracking-[2px]">
-                        <div>999+ loyiha • 999+ muvaffaqiyatsizlik</div>
-                        <div class="h-px flex-1 max-w-[180px] bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent"></div>
-                        <div class="text-[#00d4ff]">1 mijoz • O‘zim</div>
-                    </div>
-                </div>
-                
-                <!-- Right side visual -->
-                <div class="lg:col-span-5 relative hidden lg:block">
-                    <div class="glass p-8 rounded-3xl text-center">
-                        <div class="text-8xl mb-4">📍</div>
-                        <div class="text-4xl font-medium">University of World Economy and Diplomacy</div>
-                        <div class="text-[#00d4ff] text-xl mt-2">International Law • 3/4 davom etmoqda</div>
-                        
-                        <div class="mt-12 grid grid-cols-3 gap-4 text-center">
-                            <div>
-                                <div class="text-5xl font-semibold">PRO</div>
-                                <div class="text-sm text-[#00d4ff]">AI USER</div>
-                            </div>
-                            <div>
-                                <div class="text-5xl font-semibold">🏃‍♂️</div>
-                                <div class="text-sm text-[#00d4ff]">ATHLETE</div>
-                            </div>
-                            <div>
-                                <div class="text-5xl font-semibold">🎮</div>
-                                <div class="text-sm text-[#00d4ff]">MLBB PRO</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-12 left-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
-            <div class="animate-bounce">↓</div>
-            SCROLL FOR MORE
-        </div>
-    </section>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div>
+      <h2>About Me</h2>
+      <p>Student in UWED, University of World Economy and Diplomacy.<br>
+        Currently in 3rd year studying International Law with exceptional dedication.<br>
+        Projects failed? 999+ but here's something new every time!
+      </p>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="py-28 relative">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="grid lg:grid-cols-12 gap-16">
-                <div class="lg:col-span-5">
-                    <div class="sticky top-28">
-                        <h2 class="section-header text-6xl heading-font font-semibold mb-6">ABOUT ME</h2>
-                        <p class="text-2xl leading-tight text-white/90">
-                            Men Farrukh Sabriy. UWEDda International Law yo‘nalishida talabaman. 
-                            O‘qishim davom etmoqda. Hayotimdagi asosiy yo‘nalishlar — huquq, sun’iy intellekt, sport va professional o‘yinlar.
-                        </p>
-                        <div class="mt-16 text-white/60 text-sm flex gap-8">
-                            <div>Tashkent, Uzbekistan</div>
-                            <div>200+ kunlik doimiy o‘qish</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="glass p-10 rounded-3xl scroll-animate">
-                        <div class="flex justify-between text-sm uppercase mb-4">
-                            <span>2021 — hozirgacha</span>
-                            <span class="text-[#00d4ff]">3-YIL</span>
-                        </div>
-                        <h3 class="text-3xl font-semibold">International Law • University of World Economy and Diplomacy</h3>
-                        <p class="mt-6 text-lg">3-yil o‘qish davom etmoqda. Hali ham 3/4 bosqichda. Bu mening eng katta va doimiy loyiham.</p>
-                    </div>
-                    
-                    <div class="glass p-10 rounded-3xl scroll-animate" style="animation-delay: 200ms">
-                        <div class="flex justify-between text-sm uppercase mb-4">
-                            <span>2024 — hozirgacha</span>
-                            <span class="text-[#00d4ff]">1-YIL</span>
-                        </div>
-                        <h3 class="text-3xl font-semibold">Trading tajribasi</h3>
-                        <p class="mt-6 text-lg">Bir yil davomida professional trading bilan shug‘ullandim. Natijada — 20 yillik “professional unemployment boss” tajribasi.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- PARALLAX SCROLLING -->
+  <div class="parallax"></div>
 
-    <!-- EXPERTISE -->
-    <section id="expert" class="py-28 bg-black/60">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <h2 class="section-header text-6xl heading-font font-semibold text-center mb-20">MY EXPERTISE</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass p-9 rounded-3xl card-3d scroll-animate">
-                    <div class="text-6xl mb-6">🤖</div>
-                    <h4 class="text-3xl font-semibold">PRO AI USER</h4>
-                    <p class="mt-4 text-lg">Grok, Claude va boshqa AI modellari bilan professional darajada ishlayman. Prompt muhandisligi.</p>
-                </div>
-                <div class="glass p-9 rounded-3xl card-3d scroll-animate" style="animation-delay: 100ms">
-                    <div class="text-6xl mb-6">📜</div>
-                    <h4 class="text-3xl font-semibold">INTERNATIONAL LAW</h4>
-                    <p class="mt-4 text-lg">Huquqiy tahlil, xalqaro shartnomalar va diplomatiya bo‘yicha chuqur bilim.</p>
-                </div>
-                <div class="glass p-9 rounded-3xl card-3d scroll-animate" style="animation-delay: 200ms">
-                    <div class="text-6xl mb-6">🏃</div>
-                    <h4 class="text-3xl font-semibold">ATHLETE</h4>
-                    <p class="mt-4 text-lg">Har kuni sport bilan shug‘ullanaman — intizom va natijaga erishish uchun.</p>
-                </div>
-                <div class="glass p-9 rounded-3xl card-3d scroll-animate" style="animation-delay: 300ms">
-                    <div class="text-6xl mb-6">📱</div>
-                    <h4 class="text-3xl font-semibold">INSTAGRAM DOOM SCROLLER</h4>
-                    <p class="mt-4 text-lg">Professional darajada kontent iste’mol qiluvchi. Analitik ko‘nikmalar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <h2 class="projects-title">My Projects</h2>
+    <div class="project-gallery">
+      <div class="project-item">
+        <h3>Project 1</h3>
+        <p>Description for Project 1</p>
+      </div>
+      <div class="project-item">
+        <h3>Project 2</h3>
+        <p>Description for Project 2</p>
+      </div>
+      <div class="project-item">
+        <h3>Project 3</h3>
+        <p>Description for Project 3</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- EXPERIENCE / SAGA -->
-    <section id="experience" class="py-28">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <h2 class="section-header text-6xl heading-font font-semibold mb-16">MY JOURNEY</h2>
-            
-            <div class="max-w-4xl mx-auto relative">
-                <div class="absolute left-8 top-0 bottom-0 w-px timeline-line"></div>
-                
-                <div class="space-y-20">
-                    <div class="flex gap-8 scroll-animate">
-                        <div class="w-16 h-16 glass flex-shrink-0 rounded-2xl flex items-center justify-center text-3xl z-10">1</div>
-                        <div class="flex-1 glass p-8 rounded-3xl">
-                            <span class="text-xs font-medium text-[#00d4ff]">2021 — HOZIR</span>
-                            <h3 class="text-3xl font-semibold mt-3">International Law Student @ UWED</h3>
-                            <p class="mt-6">O‘qish davom etmoqda. Hali ham talaba bo‘lib qolaman.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-8 scroll-animate" style="animation-delay: 150ms">
-                        <div class="w-16 h-16 glass flex-shrink-0 rounded-2xl flex items-center justify-center text-3xl z-10">2</div>
-                        <div class="flex-1 glass p-8 rounded-3xl">
-                            <span class="text-xs font-medium text-[#00d4ff]">2024 — HOZIR</span>
-                            <h3 class="text-3xl font-semibold mt-3">Professional Trader (1 yil)</h3>
-                            <p class="mt-6">Savdo tajribasi. Natija — professional unemployment boss (20 yil).</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-8 scroll-animate" style="animation-delay: 300ms">
-                        <div class="w-16 h-16 glass flex-shrink-0 rounded-2xl flex items-center justify-center text-3xl z-10">3</div>
-                        <div class="flex-1 glass p-8 rounded-3xl">
-                            <span class="text-xs font-medium text-[#00d4ff]">HAR KUNI</span>
-                            <h3 class="text-3xl font-semibold mt-3">Instagram Doom Scroller &amp; MLBB Pro Gamer</h3>
-                            <p class="mt-6">Epic glory darajasida o‘ynayman. Kontent iste’moli — professional darajada.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Farrukh Sabriy. All Rights Reserved.</p>
+  </footer>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="py-28 bg-black/60">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="flex justify-between items-baseline mb-16">
-                <h2 class="section-header text-6xl heading-font font-semibold">999+ LOYIHALAR</h2>
-                <p class="text-2xl text-[#00d4ff]">999+ muvaffaqiyatsizlik • 1 muvaffaqiyat (o‘zim)</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-3xl card-3d scroll-animate">
-                    <div class="uppercase text-xs mb-3">LOYIHA #001</div>
-                    <h4 class="text-2xl font-semibold">AI Happiness Generator</h4>
-                    <p class="mt-5 opacity-80">Baxt yaratish uchun AI. Natija — yangi baxtsizlik. Classic muvaffaqiyatsizlik.</p>
-                    <div class="mt-12 flex justify-between text-sm"><span class="text-red-400">FAILED</span><span>2025</span></div>
-                </div>
-                <div class="glass p-8 rounded-3xl card-3d scroll-animate" style="animation-delay: 100ms">
-                    <div class="uppercase text-xs mb-3">LOYIHA #042</div>
-                    <h4 class="text-2xl font-semibold">Trading Bot of Future</h4>
-                    <p class="mt-5 opacity-80">Avtomatik savdo tizimi. Natija — tajribani oshirdi va unemployment rekordini yangiladi.</p>
-                    <div class="mt-12 flex justify-between text-sm"><span class="text-red-400">FAILED</span><span>2024</span></div>
-                </div>
-                <div class="glass p-8 rounded-3xl card-3d scroll-animate" style="animation-delay: 200ms">
-                    <div class="uppercase text-xs mb-3">LOYIHA #999</div>
-                    <h4 class="text-2xl font-semibold">Law Degree Simulator</h4>
-                    <p class="mt-5 opacity-80">Diplom olish uchun simulyator. Hozircha o‘qish davom etmoqda.</p>
-                    <div class="mt-12 flex justify-between text-sm"><span class="text-emerald-400">IN PROGRESS</span><span>2026</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GAMING -->
-    <section id="gaming" class="py-28">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="grid lg:grid-cols-12 gap-16 items-center">
-                <div class="lg:col-span-5">
-                    <h2 class="section-header text-6xl heading-font font-semibold">MLBB PROFESSIONAL</h2>
-                    <p class="text-3xl mt-8 text-white/90">Epic Glory darajasida o‘ynayman. Har bir o‘yin — yangi strategiya.</p>
-                    <div class="mt-12 flex gap-10">
-                        <div class="text-center">
-                            <div class="text-7xl font-bold">Mythic</div>
-                            <div class="text-sm text-[#00d4ff]">PEAK RANK</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-7xl font-bold">100+</div>
-                            <div class="text-sm text-[#00d4ff]">EPIC WINS</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-7 glass p-14 rounded-3xl">
-                    <div class="text-6xl">🎮 PROFESSIONAL MOBILE LEGENDS GAMER</div>
-                    <p class="mt-8 max-w-lg text-xl">"O‘yin — bu intizom. Muvaffaqiyatsizlik — bu tajriba."</p>
-                    <div class="mt-12 text-[#00d4ff]">— Farrukh Sabriy</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="py-28 bg-black/60">
-        <div class="max-w-screen-2xl mx-auto px-8 text-center">
-            <div class="max-w-2xl mx-auto glass p-16 rounded-3xl">
-                <h2 class="text-6xl heading-font font-semibold mb-6">KELAJAKKA BIRGALIKDA</h2>
-                <p class="text-2xl text-white/80">Yangi loyihalar, muvaffaqiyatsizliklar va muvaffaqiyatlar uchun bog‘laning.</p>
-                
-                <div class="mt-16 flex flex-wrap justify-center gap-6">
-                    <a href="mailto:nothinxz@gmail.com" class="glass px-12 py-6 text-xl rounded-3xl flex items-center gap-4 hover:bg-[#00d4ff] hover:text-black">✉️ nothinxz@gmail.com</a>
-                    <a href="https://github.com/nothin-zz" target="_blank" class="glass px-12 py-6 text-xl rounded-3xl flex items-center gap-4 hover:bg-[#00d4ff] hover:text-black">🐙 GitHub</a>
-                    <a href="https://instagram.com/nothin.zzzz" target="_blank" class="glass px-12 py-6 text-xl rounded-3xl flex items-center gap-4 hover:bg-[#00d4ff] hover:text-black">📸 Instagram</a>
-                    <a href="https://t.me/nothin_xz" target="_blank" class="glass px-12 py-6 text-xl rounded-3xl flex items-center gap-4 hover:bg-[#00d4ff] hover:text-black">✈️ Telegram</a>
-                </div>
-                
-                <div class="mt-16 text-xs opacity-50">© 2026 Farrukh Sabriy • Single index.html • Advanced parallax + 3D animations + cinematic particles • 1382 lines</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-8 text-center text-xs tracking-widest text-white/30">
-        JIDDIY • MURAKKAB ANIMATSIYALAR • PARALLAX • GLASSMORPHISM • PROFESSIONAL DESIGN
-    </footer>
-
-    <script>
-        // Tailwind
-        function initTailwind() {
-            return {
-                config(userConfig = {}) {
-                    return {
-                        configUser: userConfig,
-                        theme: { extend: {} }
-                    }
-                }
-            }
-        }
-        
-        // Multi-layer parallax
-        function initParallax() {
-            const bg1 = document.getElementById('parallax-bg1')
-            const bg2 = document.getElementById('parallax-bg2')
-            const orb = document.getElementById('parallax-orb')
-            
-            window.addEventListener('scroll', () => {
-                const y = window.scrollY
-                if (bg1) bg1.style.transform = `translateY(${y * 0.2}px)`
-                if (bg2) bg2.style.transform = `translateY(${y * 0.4}px)`
-                if (orb) orb.style.transform = `translateY(${y * -0.15}px)`
-            })
-        }
-        
-        // Advanced canvas particles (cinematic)
-        function initParticles() {
-            const canvas = document.getElementById('hero-canvas')
-            if (!canvas) return
-            const ctx = canvas.getContext('2d')
-            
-            let particles = []
-            
-            function resize() {
-                canvas.width = window.innerWidth
-                canvas.height = window.innerHeight
-            }
-            
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width
-                    this.y = Math.random() * canvas.height
-                    this.size = Math.random() * 3 + 1
-                    this.speedX = Math.random() * 1.5 - 0.75
-                    this.speedY = Math.random() * 1.5 - 0.75
-                    this.life = 180
-                }
-                update() {
-                    this.x += this.speedX
-                    this.y += this.speedY
-                    this.life--
-                    this.size *= 0.98
-                }
-                draw() {
-                    ctx.fillStyle = '#00d4ff'
-                    ctx.shadowBlur = 12
-                    ctx.shadowColor = '#00d4ff'
-                    ctx.fillRect(this.x, this.y, this.size, this.size)
-                }
-            }
-            
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height)
-                
-                if (particles.length < 180) particles.push(new Particle())
-                
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    particles[i].update()
-                    particles[i].draw()
-                    if (particles[i].life <= 0 || particles[i].size < 0.3) particles.splice(i, 1)
-                }
-                
-                requestAnimationFrame(animate)
-            }
-            
-            window.addEventListener('resize', resize)
-            resize()
-            animate()
-            
-            // Click burst
-            canvas.addEventListener('mousedown', (e) => {
-                for (let i = 0; i < 60; i++) {
-                    const p = new Particle()
-                    p.x = e.clientX
-                    p.y = e.clientY
-                    p.speedX *= 3.5
-                    p.speedY *= 3.5
-                    particles.push(p)
-                }
-            })
-        }
-        
-        // Scroll animations
-        function initScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible')
-                    }
-                })
-            }, { threshold: 0.2 })
-            
-            document.querySelectorAll('.scroll-animate').forEach(el => {
-                observer.observe(el)
-            })
-        }
-        
-        // 3D card tilt effect
-        function initCardTilt() {
-            const cards = document.querySelectorAll('.card-3d')
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect()
-                    const x = (e.clientX - rect.left) / rect.width
-                    const y = (e.clientY - rect.top) / rect.height
-                    
-                    const rotX = (y - 0.5) * -25
-                    const rotY = (x - 0.5) * 25
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`
-                })
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)'
-                })
-            })
-        }
-        
-        // Smooth scroll
-        function smoothScrollTo(id) {
-            const el = document.getElementById(id)
-            if (el) el.scrollIntoView({ behavior: 'smooth' })
-        }
-        
-        // Mobile menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu')
-            menu.classList.toggle('hidden')
-        }
-        
-        // Main launch
-        function launchPortfolio() {
-            console.log('PORTFOLIO', 'color:#00d4ff; font-family:monospace; font-size:12px')
-            
-            initTailwind()
-            initParallax()
-            initParticles()
-            initScrollAnimations()
-            initCardTilt()
-            
-            console.log('-')
-        }
-        
-        window.onload = launchPortfolio
-    </script>
 </body>
-</html>
-```-header::</html></html>
+</html>```-header::</html></html>
